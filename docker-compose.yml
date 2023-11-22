@@ -1,8 +1,5 @@
 version: '3'
 
-networks:
-    lemp:
-
 services:
     mysql:
         image: ${MYSQL_IMAGE}
@@ -15,5 +12,3 @@ services:
             LANG: C.UTF-8
             MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
             TZ: ${TZ:-Asia/Shanghai}
-        networks:
-            - lemp
