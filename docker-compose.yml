@@ -1,0 +1,19 @@
+version: '3'
+
+networks:
+    lemp:
+
+services:
+    mysql:
+        image: ${MYSQL_IMAGE}
+        container_name: ${MYSQL_CONTAINER:-mysql}
+        ports:
+            - "${MYSQL_PORT}:3306"
+        volumes:
+            - ./mysql:/var/lib/mysql
+        environment:
+            LANG: C.UTF-8
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            TZ: ${TZ:-Asia/Shanghai}
+        networks:
+            - lemp
